@@ -1,4 +1,131 @@
 
+//-- 16. Getter, Setter ------------------
+
+/*
+class Exam {
+    // 필드 은닉화 (#[필드명]), 인스턴스 필드
+    #kor;
+    #eng;
+    #math;
+    // static 멤버
+    static #info = "안녕하세요. 저는 Exam 클래스입니다.";
+
+    constructor(kor=0, eng=0, math=0) {
+        this.#kor = kor;
+        this.#eng = eng;
+        this.#math = math;
+        // this.#info = "안녕하세요. 저는 Exam 클래스입니다.";
+    }
+    
+    // getKor() {
+    //     return this.#kor;
+    // }
+    // setKor(value) {
+    //     this.#kor = value;
+    // }
+    
+
+    get kor() {
+        return this.#kor;
+    }
+
+    set kor(value) {
+        this.#kor = value;
+    }
+
+    #total() {
+        return this.#kor + this.#eng + this.#math;
+    }
+    avg() {
+        return this.#total()/3.0;
+    }
+    static info() {
+        return Exam.#info;
+    }
+}
+
+let exam1 = new Exam();
+// setKor(), getKor()
+//exam1.setKor(30);
+//console.log(exam1.getKor());
+
+// set kor(), get kor()
+exam1.kor = 30;
+console.log(exam1.kor);
+*/
+
+//-- 15. class 멤버 은닉화, static 멤버 정의 ------------------
+
+/*
+class Exam {
+    // 필드 은닉화 (#[필드명]), 인스턴스 필드
+    #kor;
+    #eng;
+    #math;
+    // static 멤버
+    static #info = "안녕하세요. 저는 Exam 클래스입니다.";
+
+    constructor(kor=0, eng=0, math=0) {
+        this.#kor = kor;
+        this.#eng = eng;
+        this.#math = math;
+        // this.#info = "안녕하세요. 저는 Exam 클래스입니다.";
+    }
+    #total() {
+        return this.#kor + this.#eng + this.#math;
+    }
+    avg() {
+        return this.#total()/3.0;
+    }
+    static info() {
+        return Exam.#info;
+    }
+}
+
+let exam1 = new Exam(70, 80, 55);
+let exam2 = new Exam(10, 20, 30);
+let exam3 = new Exam(88, 56, 35);
+
+console.log("exam.total() : " + exam1.avg());
+//console.log(exam1.kor);
+console.log(Exam.info());
+*/
+
+//-- 14. class를 이용한 객체 정의 --------------------------
+
+// 예전 방식 (생성자 함수)
+/*
+let proto = {kor:10, eng:30};
+
+function Exam() {
+
+}
+Exam.prototype = proto;
+
+let exam = new Exam();
+console.log(exam.kor);
+*/
+
+// 새로운 방식 (클래스)
+/*
+class Exam {
+    constructor(kor=0, eng=0, math=0) {
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+    }
+    total() {
+        return this.kor + this.eng + this.math;
+    }
+    avg() {
+        
+    }
+}
+
+let exam = new Exam(70, 80, 55);
+console.log("exam.total() : " + exam.total());
+*/
+
 //-- 13. Array Functions와 그 특징 -------------------------
 
 /*
@@ -8,6 +135,7 @@ function print() {
     console.log("print : " + window.kor);
 }
 
+// 클래스는 아니고 생성자 같은 역할을 담당
 function Exam() {
     this.kor = 0;
     this.eng = 0;
@@ -20,6 +148,7 @@ console.log(exam.kor);
 console.log(kor);
 */
 
+/*
 const fun1 = (x, y)=>{
     return x + y;
 }
@@ -28,6 +157,7 @@ const fun2 = (x, y)=>x + y;
 
 console.log("func1(x, y) : " + fun1(2, 3));
 console.log("func2(x, y) : " + fun2(2, 3));
+*/
 
 //-- 12. Default Value -------------------------------------
 
