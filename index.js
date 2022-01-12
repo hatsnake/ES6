@@ -1,6 +1,203 @@
 
+//-- 13. Array Functions와 그 특징 -------------------------
+
+/*
+function print() {
+    this.kor = 10;
+    // this를 사용한 kor가 전역 변수(window)가 되는 문제 발생
+    console.log("print : " + window.kor);
+}
+
+function Exam() {
+    this.kor = 0;
+    this.eng = 0;
+    this.math = 0;
+}
+
+print();
+let exam = new Exam();
+console.log(exam.kor);
+console.log(kor);
+*/
+
+const fun1 = (x, y)=>{
+    return x + y;
+}
+
+const fun2 = (x, y)=>x + y;
+
+console.log("func1(x, y) : " + fun1(2, 3));
+console.log("func2(x, y) : " + fun2(2, 3));
+
+//-- 12. Default Value -------------------------------------
+
+/*
+// 이전 방식
+function add(x, y) {
+    x = x || 0;
+    y = y || 0;
+
+    return x + y;
+}
+
+console.log("add(2, 3) : " + add(2, 3));
+console.log("add(1) : " + add(1));
+
+// 현재 방식 (기본값은 없으면 초기화, 있으면 아규먼트 값)
+function print(x, y=10, z=20) {
+    console.log(`x:${x}, y:${y}, z:${z}`);
+    console.log(arguments.length);
+}
+
+print(2,3);
+*/
+
+//-- 11. Spread Operator ------------------------------------
+
+/*
+function print(x, y, z) {
+    console.log(`x:${x}, y:${y}, z:${z}`);
+}
+
+//let nums = [2, 4, 6];
+let set = new Set([2, 4, 6]);
+let nums = [...set];
+print(...nums);
+
+let map = new Map();
+map.set("id", 3);
+map.set("title", "hello");
+
+let temp = [...map];
+console.log("temp[0][1] : " + temp[0][1]);
+*/
+
+//-- 10. Rest Parameters ------------------------------------
+
+/*
+function print(x, y, ...values) {
+    console.log(`${x}, ${y}`);
+    console.log(`${arguments[0]}, ${arguments[1]}`);
+
+    for(let i=0; i<values.length; i++) 
+        console.log("values[i] : " + values[i]);
+}
+
+print(2, 3, 5, 6, 7);
+*/
+
+//-- 9. Map 컬렉션 -------------------------------------------
+
+/*
+// Map 초기화, 전체 조회
+let exam = new Map([["kor", 10], ["eng", 10], ["math", 10]]);
+// exam.set("kor", 10);
+// exam.set("eng", 10);
+// exam.set("math", 10);
+
+for(let [key, value] of exam.entries()) 
+    console.log(`key:${key}(${typeof(key)}), value:${value}(${typeof(value)})`);
+*/
+
+//-- 8. Set 컬렉션 -------------------------------------------
+
+// Set은 중복된 값을 허용하지 않는다.
+/*
+let set = new Set();
+set
+.add(5)
+.add("5")
+.add(2)
+.add(5);
+
+console.log(set.size);
+*/
+
+/*
+let ar = [1, 2, 3, 2 ,3, 4, 3, 4, 5];
+let set = new Set(ar);
+console.log(set.size);
+*/
+
+// forEach
+/*
+let set = new Set([2, 10, 7, 45, 23]);
+set.forEach(function(value, key, ownerSet) {
+    console.log("forEach : " + key + ":" + value);
+});
+*/
+
+// for-in과 for-of 존재
+/*
+for(let [key, value] of set.entries()) 
+    console.log("for-of : " + key + ":" + value);
+*/
+
+// 조회, 삭제
+/*
+console.log("set.has(2) : " + set.has(2));
+console.log("set.delete(10) : " + set.delete(10));
+for(let [key, value] of set.entries()) 
+    console.log("for-of 2 : " + key + ":" + value);
+*/
+
+//-- 7. Array Destructuring #2 -------------------------------
+
+/*
+// 배열에 없는 변수를 만들고 초기화
+let kors = [10, 20, 30];
+let [kor1, kor2, kor3, kor4=40] = kors;
+console.log(`kor4:${kor4}`);
+
+let exam = [10, 20, 30, [40, 50]];
+let [kor, eng, math, [com, history]] = exam;
+console.log(com);
+
+let notice = {
+    title:"공지사항",
+    files:["img1.png", "img2.png"]
+};
+*/
+
+/*
+let {title, files:[img1, img2]} = notice;
+console.log(`title:${title}, img1:${img1}, file2:${img2}`); 
+*/
+
+/*
+let notices = {
+    title:"공지사항",
+    list:[
+        {title:"타이틀1", content:"내용1"},
+        {title:"타이틀2", content:"내용2"}
+    ]
+};
+
+let {title, list:[notice1, notice2]} = notices;
+console.log(notice1.title);
+*/
+
+//-- 7. Array Destructuring #1 -------------------------------
+
+/*
+// 배열의 데이터를 변수에 넣는 방법
+let kors = [10, 20, 30];
+let [, , kor3] = kors;
+console.log(`kors3:${kor3}`);
+
+let temp = [40, 70, 30];
+[kor1, kor2, kor3] = temp;
+console.log(`kor1:${kor1}, kor2:${kor2}, kor3:${kor3}`);
+
+// Swap
+let x=2, y=3;
+[y, x] = [x, y];
+console.log(`x:${x}, y:${y}`);
+*/
+
 //-- 6. Object Destructuring #3 -------------------------------
 
+/*
 let exam = {
     kor:10,
     eng:20,
@@ -16,6 +213,7 @@ console.log(kor);
 console.log(eng);
 console.log(name);
 console.log(phone);
+*/
 
 /*
 let exam = {
